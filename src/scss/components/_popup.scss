@@ -1,0 +1,73 @@
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background: rgba($color: #000000, $alpha: 0.9);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 9;
+
+    &__content {
+        @include absCenter;
+        transform: translate(-50%, -50%) scale(0.25);
+        width: 80%;
+        background-color: color(gray_white);
+        display: table;
+        transition: all 0.4s 0.2s ease-out;
+    }
+
+    &__images {
+        width: 30%;
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    &__image {
+        height: 200px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    &__text {
+        width: 66%;
+        display: table-cell;
+        vertical-align: middle;
+        padding-left: size(md);
+    }
+
+    .paragraph {
+        float: left;
+        columns: 2;
+        column-gap: 4rem;
+    }
+
+    &__close {
+        @include anchorTag;
+        position: absolute;
+        color: color(gray_light);
+        font-size: 3rem;
+        top: 1rem;
+        right: 2rem;
+        border-radius: 3px;
+
+        &:hover {
+            color: color(md_green);
+        }
+    }
+
+    &:target &__content {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    &:target {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+}

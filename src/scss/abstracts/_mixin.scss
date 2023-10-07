@@ -1,0 +1,75 @@
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+@mixin gradientColor {
+    & {
+        background: linear-gradient(
+            to right,
+            rgba(color(light_green), 0.7),
+            rgba(color(dark_green), 0.9)
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}
+
+@mixin absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin anchorTag {
+    &:link,
+    &:visited {
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+}
+
+/*
+phone-portrait:34.37em --> 550px
+phone-land: 43.75em --> 700px
+tab-portrait : 56.25em --> 900px
+tab-landscape: 75em --> 1200px
+big-screen : 112.5em --1800px
+*/
+
+@mixin responsive($breakpoint) {
+    @if ($breakpoint == phone-port) {
+        @media (max-width: 34.37em) {
+            @content;
+        }
+    }
+
+    @if ($breakpoint == phone-land) {
+        @media (max-width: 43.75em) {
+            @content;
+        }
+    }
+
+    @if ($breakpoint == tab-port) {
+        @media (max-width: 56.25em) {
+            @content;
+        }
+    }
+
+    @if ($breakpoint == tab-land) {
+        @media (max-width: 75em) {
+            @content;
+        }
+    }
+
+    @if ($breakpoint == bg-screen) {
+        @media (max-width: 112.5em) {
+            @content;
+        }
+    }
+}

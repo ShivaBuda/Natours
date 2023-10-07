@@ -1,0 +1,111 @@
+.contact {
+    padding: 10rem 0;
+    background-image: linear-gradient(
+        to bottom right,
+        rgba(color(light_green), 0.7),
+        rgba(color(dark_green), 0.9)
+    );
+
+    &__form {
+        width: 90%;
+        padding: 4.8rem 3.2rem;
+        margin: auto;
+        box-shadow: 0 1rem 1rem rgba(color(gray_dark), 0.2);
+        border-radius: 2px;
+        background-image: linear-gradient(
+                110deg,
+                rgba(color(gray_white), 0.6) 0%,
+                rgba(color(gray_white), 0.6) 60%,
+                transparent 0%
+            ),
+            url(../img/img-2.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+.book {
+    &__input {
+        width: 42%;
+        border: none;
+        margin-top: 2rem;
+        padding: 1rem;
+        font-size: size(xsm);
+        color: lighten(color(gray_dark), 30%);
+        border-radius: 2px;
+        border-bottom: 3px solid transparent;
+        transition: all 0.3s;
+
+        &:focus {
+            outline: none;
+            border-bottom: 3px solid color(dark_green);
+            box-shadow: 0 1rem 1rem rgba(color(gray_dark), 0.2);
+        }
+
+        &:focus:invalid {
+            border-bottom: 3px solid color(dark_orange);
+        }
+
+        &:placeholder-shown + .input__label {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-3rem);
+        }
+    }
+}
+
+.input__label {
+    display: block;
+    font-size: size(xsm) - 0.4;
+    color: lighten(color(gray_dark), 10%);
+    padding: 1rem;
+    transition: all 0.3s;
+}
+
+.btn--book {
+    border: none;
+}
+
+.selection {
+     margin-top: 3rem;
+    .select--btn {
+        position: relative;
+        display: inline-block;
+        width: 20%;
+    }
+
+    [type="radio"]{
+     display: none;
+
+     &:checked ~ .radio__label .radio__btn::after{
+          display:block;
+     }
+    }
+    .radio__btn {
+        position: absolute;
+        width: 2.4rem;
+        height: 2.4rem;
+        border: 5px solid color(dark_green);
+        top: 0;
+        left: 0;
+        border-radius: 100%;
+        background-color: color(gray_white);
+
+        &::after {
+            @include absCenter;
+            content: "";
+            width: 1.1rem;
+            height: 1.1rem;
+            border-radius: 50%;
+            background: color(dark_green);
+            display: none;
+          
+        }
+    }
+    .radio__label {
+        font-size: size(xsm);
+        cursor: pointer;
+        color: lighten(color(gray_dark), 20%);
+        padding-left: 4rem;
+    }
+}

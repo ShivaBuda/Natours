@@ -1,0 +1,218 @@
+.tour {
+    background: lighten(color(gray_light), 40%);
+    padding: 30rem 10rem 15rem 10rem;
+    margin-top: -10rem;
+    text-align: center;
+
+    .card_container {
+        @include clearfix;
+    }
+
+    & .heading--secondary {
+        margin-bottom: size(xl);
+    }
+
+    &__card {
+        backface-visibility: hidden;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0 0.8rem 1rem rgba(0, 0, 0, 0.15);
+
+        @include responsive(tab-land){
+            position: relative;
+        }
+    }
+
+    &__heading {
+        position: absolute;
+        font-size: size(sm);
+        text-align: right;
+        color: color(gray_white);
+        text-transform: uppercase;
+        z-index: 2;
+        top: 30%;
+        right: 5%;
+        font-weight: 400;
+        width: 71%;
+
+        .heading__span {
+            padding: 0.4rem 1.5rem;
+            box-decoration-break: clone;
+
+            &--forest {
+                background: linear-gradient(
+                    to right bottom,
+                    rgba(color(light_green), 0.7),
+                    rgba(color(dark_orange), 0.9)
+                );
+            }
+            &--sea {
+                background: linear-gradient(
+                    to right bottom,
+                    rgba(color(blue_light), 0.7),
+                    rgba(color(blue_dark), 0.9)
+                );
+            }
+            &--snow {
+                background: linear-gradient(
+                    to right bottom,
+                    rgba(color(light_orange), 0.7),
+                    rgba(color(dark_orange), 0.9)
+                );
+            }
+        }
+    }
+}
+
+
+.card__box {
+    // position: relative;
+    width: calc((100% - 2 * #{size(md)}) / 3);
+    float: left;
+    perspective: 130rem;
+
+    &:not(:last-child) {
+        margin-right: size(md);
+    }
+
+    &:hover .card {
+        transform: rotateY(-180deg);
+
+        @include responsive(tab-land){
+            transform: rotate(0);
+        }
+    }
+    .card {
+        position: relative;
+        height: 450px;
+        transition: transform 2s ease;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        
+        @include responsive(tab-land){
+            height: 400px;
+        }
+
+        &__img {
+            height: 23rem;
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+            background-size: cover;
+        }
+
+        &--forest {
+            background: linear-gradient(
+                    to right bottom,
+                    rgba(color(light_green), 0.5),
+                    rgba(color(light_orange), 0.9)
+                ),
+                url("../img/forest.jpg");
+            background-blend-mode: screen;
+            background-position: center;
+        }
+
+        &--sea {
+            background: linear-gradient(
+                    to right bottom,
+                    rgba(color(blue_light), 0.9),
+                    rgba(color(blue_dark), 0.9)
+                ),
+                url("../img/sea.jpg");
+            background-blend-mode: screen;
+            background-position: center;
+        }
+
+        &--mountain {
+            background: linear-gradient(
+                    to right bottom,
+                    rgba(color(light_orange), 0.4),
+                    rgba(color(dark_orange), 0.7)
+                ),
+                url("../img/mountain.jpg");
+            background-blend-mode: screen;
+            background-position: left;
+        }
+        &__back {
+            transform: rotateY(180deg);
+
+            @include responsive(tab-land){
+                transform: rotate(0);
+            }
+
+            &--snow {
+                background: linear-gradient(
+                    to right bottom,
+                    rgba(color(light_orange), 0.5),
+                    rgba(color(dark_orange), 0.9)
+                );
+            }
+
+            &--sea {
+                background: linear-gradient(
+                    to right bottom,
+                    rgba(color(blue_light), 0.5),
+                    rgba(color(blue_dark), 0.9)
+                );
+            }
+
+            &--forest {
+                background: linear-gradient(
+                    to right bottom,
+                    rgba(color(light_green), 0.5),
+                    rgba(color(dark_orange), 0.9)
+                );
+            }
+        }
+    }
+}
+
+.tour {
+    .list__container {
+        text-align: center;
+    }
+    &__lists {
+        list-style: none;
+        color: color(gray_light);
+        display: inline-block;
+        font-size: size(xsm)-0.3;
+
+        li {
+            padding: 1rem;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid color(gray_white);
+            }
+        }
+    }
+}
+
+.card__back {
+    text-align: center;
+    color: color(gray_white);
+    @include responsive(tab-land){
+        
+    }
+    &__cta {
+        @include absCenter;
+        width: 90%;
+
+    }
+
+    .price {
+        margin-bottom: 4.8rem;
+        &__text {
+            text-transform: uppercase;
+            font-size: size(xsm) - 0.4rem;
+            margin-bottom: 1rem;
+        }
+
+        &__amount {
+            font-size: size(lg);
+            font-weight: 300;
+        }
+    }
+}

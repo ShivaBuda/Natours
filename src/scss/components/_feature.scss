@@ -1,0 +1,91 @@
+.feature{
+    text-align: center;
+    margin-top: -15vh;
+    padding: 20rem 0;
+    background: linear-gradient(
+            to right bottom,
+            rgba(color(light_green), 0.4),
+            rgba(color(dark_green), 0.5)
+        ),
+        url("../img/img-4.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    // clip-path: polygon(0 15%, 80% 0, 100% 0, 100% 85%, 0 100%);
+    transform: skewY(-7deg);
+
+//     & > *{
+//      transform: skewY(7deg);
+//     }
+
+    &__container {
+        margin: auto;
+        width: 80%;
+        transform: skewY(7deg);
+        @include clearfix;
+
+        @include responsive(phone-port){
+            width: 60%;
+        }
+    }
+
+    &__row {
+        background: color(gray_white);
+        width: calc((100% - 3 * #{size(md)}) / 4);
+        float: left;
+        padding: 1rem 2rem;
+        border-radius: 2px;
+        box-shadow: 0 1.6rem 2rem rgba(color(gray_dark), 0.4);
+        transition: transform .3s;
+
+        &:not(:last-child) {
+            margin-right: size(md);
+        }
+
+        @include responsive(tab-port){
+            &:not(:last-child) {
+                margin-right: 0;
+            }
+        }
+
+        @include responsive(tab-port){
+            width: calc((100% - #{size(md)}) / 2);
+        }
+        @include responsive(phone-port){
+            width: 100%;
+        }
+
+        &:hover{
+          transform: translateY(-10px) scale(1.05);
+
+        }
+    }
+
+    &--A{
+        @include responsive(tab-port){
+            float: left;
+        }
+    }
+    &--B{
+        @include responsive(tab-port){
+            float: right;
+        }
+        
+        @include responsive(phone-port){
+            margin-top: size(xl);
+        }
+    }
+    &--C{
+        @include responsive(tab-port){
+            float: left;
+            margin-top: size(xl);
+            margin-right: size(md);
+        }
+    }
+    &--D{
+        @include responsive(tab-port){
+            margin-top: size(xl);
+            float: right;
+        }
+    }
+}

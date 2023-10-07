@@ -1,0 +1,38 @@
+$color: (
+     light_green: #7ed56f,
+     md_green: #55c57a,
+     dark_green: #28b485,
+
+     gray_white: #fff,
+     gray_dark: #333,
+     gray_light: #777,
+
+     dark_orange: #a15818,
+     light_orange: #e67e22,
+
+     blue_light:#93d3fb,
+     blue_dark: #517c96,
+);
+
+@function color($color_key){
+     @return map-get($map: $color, $key:$color_key )
+}
+
+$font_size:(
+     xl: 6.2rem,
+     lg: 4.8rem,
+     md: 3.2rem,
+     sm: 2.4rem,
+     xsm: 1.6rem,
+);
+
+@function size($size){
+     @return map-get($map: $font_size, $key: $size)
+}
+
+.row{
+     width: calc((100% - #{size(md)}) / 2);
+     float: left;
+}
+
+
